@@ -9,93 +9,123 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body onload="getTasks()">
+<body onload="getTodos()">
     <div class="jumbotron">
         <h1 class="display-4"><b>Tasks Manager</b></h1>
     </div>
 
     <div class="container">
-        <ul id="ulList">
-
-        </ul>
-        <br>
-        <h2 class="text-muted" style="padding-left: 6%;">Add New Task</h2>
-        <br>
         <div class="row">
-            <div class="col-md-4">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Title</span>
-                    </div>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
-                </div>
+            <div class="col-sm">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Description</span>
-                    </div>
-                    <input type="text" class="form-control" name="desc" id="desc" placeholder="Description">
-                </div>
+                <h2 class="text-muted" style="padding-left: 6%;">Add New Task</h2>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Title</span>
+                                </div>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
+                            </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Due Date</span>
-                    </div>
-                    <input type="date" class="form-control" name="due" id="due" placeholder="YYYY-MM-DD">
-                </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Description</span>
+                                </div>
+                                <input type="text" class="form-control" name="desc" id="desc" placeholder="Description">
+                            </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Priority</span>
-                    </div>
-                    <select id="priority" name="priority" class="form-control">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Due Date</span>
+                                </div>
+                                <input type="date" class="form-control" name="due" id="due" placeholder="YYYY-MM-DD">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Priority</span>
+                                </div>
+                                <select id="priority" name="priority" class="form-control">
                         <option>high</option>
                         <option selected>medium</option>
                         <option>low</option>
                     </select>
-                </div>
+                            </div>
+                            <div class="navbar">
+                                <button type="submit" id="submit" class="btn btn-unique btn-rounded mb-1 btn-success col">ADD</button>
+                                <div class="btn-group dropdown col-6 col-sm-3 col-md-6 p-1">
+                                    <button class="btn btn-unique mb-1 btn-success col" type="submit" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Sort By
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#" id="sortByDueAs"><i class="fas fa-sort-amount-up"></i> Due Date Asc</a>
+                                        <a class="dropdown-item" href="#" id="sortByDueDe"><i class="fas fa-sort-amount-down"></i> Due Date Desc</a>
+                                        <a class="dropdown-item" href="#" id="sortByPriorit"><i class="fas fa-sort-amount-down"></i> Priority</a>
+                                        <a class="dropdown-item" href="#" id="sortByStatu"><i class="fas fa-sort-amount-down"></i> Status</a>
+                                    </div>
+                                </div>
+                            </div>
 
-                <button type="submit" id="submit" class="btn btn-success">ADD</button>
-                <div id="myModal" class="modal">
+                            <!-- <div class="col-6 col-sm-3 col-md-4  p-1">
+                                <button class="btn btn-warning col" id="btnCleanup">
+                        <i class="fas fa-trash-alt"></i> Remove
+                        </button>
+                            </div> -->
 
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <ul id="notesList"></ul>
-                    </div>
 
-                </div>
-                <div id="myModal2" class="modal2">
-
-                    <div class="modal-content">
-                        <span class="close2">&times;</span>
-                        <form id="editForm" class="form-control">
-                            <h1>Edit</h1>
-                            <br/>
-
-                            <label for="newdate" id="labeldate">Date</label>
-                            <label for="newprior" id="labelprior">Priority</label>
-                            <label for="newstatus" id="labelstatus">Status</label>
-                            <br>
                         </form>
-                    </div>
-                </div>
-                <div id="myModal3" class="modal3">
+                        <div id="myModal" class="modal">
 
-                    <div class="modal-content">
-                        <span class="close3">&times;</span>
-                        <form id="notesForm">
-                            <h1>Add Note</h1>
-                            <br>
-                            <label id="labelId">Note:</label>
-                        </form>
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <ul id="notesList"></ul>
+                            </div>
+
+                        </div>
+                        <div id="myModal2" class="modal2">
+
+                            <div class="modal-content">
+                                <span class="close2">&times;</span>
+                                <form id="editForm" class="form-control">
+                                    <h1>Edit</h1>
+                                    <br/>
+
+                                    <label for="newdate" id="labeldate">Date</label>
+                                    <label for="newprior" id="labelprior">Priority</label>
+                                    <label for="newstatus" id="labelstatus">Status</label>
+                                    <br>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="myModal3" class="modal3">
+
+                            <div class="modal-content">
+                                <span class="close3">&times;</span>
+                                <form id="notesForm">
+                                    <h1>Add Note</h1>
+                                    <br>
+                                    <label id="labelId">Note:</label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <ul id="ulList">
+
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <!--Sort and cleanup section-->
+
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 

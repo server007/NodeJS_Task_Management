@@ -2,10 +2,6 @@
     padding-left: 35%;
 }
 
-html {
-    background-color: aquamarine;
-}
-
 #newdate {
     width: 15%;
     padding: 5px;
@@ -38,6 +34,7 @@ html {
 
 #ulList li,
 #ulList {
+    color: rgb(96, 105, 114);
     margin-left: 20px;
     padding: 4px;
     font-size: 103%;
@@ -97,43 +94,49 @@ html {
 }
 
 #myBtn {
-    background-color: rgb(233, 130, 130);
+    background-color: lightseagreen;
     border: none;
     color: #ffffff;
     padding: 2px 16px;
     text-align: center;
+    margin-left: 2cm;
     text-decoration: currentColor;
     display: inline-block;
     font-size: 15px;
     border-radius: 2px;
-    transition-duration: 0.4s;
+    transition-duration: 0.6s;
     cursor: pointer;
 }
 
 #myBtn2 {
-    background-color: rgb(187, 224, 131);
     border: none;
+    background-color: grey;
     color: #ffffff;
     padding: 2px 16px;
+    padding-left: 38px;
+    padding-right: 38px;
     text-align: center;
+    margin-left: 2cm;
     text-decoration: currentColor;
     display: inline-block;
     font-size: 15px;
     border-radius: 2px;
-    transition-duration: 0.4s;
+    transition-duration: 0.6s;
     cursor: pointer;
 }
 
 #myBtn3 {
-    background-color: rgb(158, 109, 204);
     border: none;
     color: #ffffff;
     padding: 2px 16px;
+    padding-left: 21px;
+    padding-right: 21px;
     text-align: center;
+    margin-left: 2cm;
     text-decoration: currentColor;
     display: inline-block;
     font-size: 15px;
     border-radius: 2px;
-    transition-duration: 0.4s;
+    transition-duration: 0.6s;
     cursor: pointer;
 }
