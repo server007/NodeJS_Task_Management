@@ -4,6 +4,8 @@ const { Op } = require('Sequelize')
 
 const route = Router()
 
+
+
 route.get('/', async(req, res) => {
     const todos = await Todos.findAll({
         order: [

@@ -16,7 +16,13 @@ app.use('/todos', todoRoute)
 
 app.use('/order', todoRoute2)
 
+app.get('/', async(req, res) => {
+    res.redirect('/todo');
+});
+
 const server_port = process.env.PORT || 7777
+
+
 
 db.sync()
     .then(() => {
