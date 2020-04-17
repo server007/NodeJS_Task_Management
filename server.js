@@ -16,9 +16,11 @@ app.use('/todos', todoRoute)
 
 app.use('/order', todoRoute2)
 
+const server_port = process.env.PORT || 7777
+
 db.sync()
     .then(() => {
-        app.listen(7777)
+        app.listen(server_port)
     })
     .catch((err) => {
         console.error(err)
